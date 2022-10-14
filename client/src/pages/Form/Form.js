@@ -110,157 +110,124 @@ class Form extends Component {
         return re.test(String(email).toLowerCase());
     }
 
-    // submitUserData = () => {
+    submitUserData = () => {
 
-    //     const {affiliatedWithNapaStore, anInstallerCustomer, fullName, emailAddress} = this.state;
-    //     const {storeNumber, servicingDC, storeName, storeAddress} = this.state;
-    //     const {businessName, businessAddress} = this.state;
-    //     const {oeTurboPowerTurboChargers, napaStartersAndAlternators, napaPowerSport, wilson, premiumNapaSteering, napaNewSteering} = this.state;
-
-
-    //     var errors = {};
-
-    //     if (!fullName) {
-    //         errors['name'] = "Full name is required";
-    //     }
-    //     if (!emailAddress) {
-    //         errors['email'] = "Email address is required";
-    //     } else if (!this.validateEmail(emailAddress)) {
-    //         errors['email'] = "Email address is not valid";
-    //     }
-
-    //     if (affiliatedWithNapaStore) {
-    //         if (!storeNumber) {
-    //             errors['store_number'] = "Store number is required";
-    //         }
-    //         if (!servicingDC) {
-    //             errors['servicing_dc'] = "Servicing DC is required";
-    //         }
-    //         if (!storeName) {
-    //             errors['store_name'] = "Store name is required";
-    //         }
-    //         if (!storeAddress) {
-    //             errors['store_address'] = "Store address is required";
-    //         }
-    //     } else if (anInstallerCustomer) {
-    //         if (!businessName) {
-    //             errors['business_name'] = "Business name is required";
-    //         }
-    //         if (!businessAddress) {
-    //             errors['business_address'] = "Business address is required";
-    //         }
-    //     } else {
-    //         errors['user_type'] = "Select who are you?";
-    //     }
+        const {affiliatedWithNapaStore, anInstallerCustomer, fullName, emailAddress} = this.state;
+        const {storeNumber, servicingDC, storeName, storeAddress} = this.state;
+        const {businessName, businessAddress} = this.state;
+        const {oeTurboPowerTurboChargers, napaStartersAndAlternators, napaPowerSport, wilson, premiumNapaSteering, napaNewSteering} = this.state;
 
 
-    //     if (Object.keys(errors).length == 0) {
-    //         let postData = {
-    //             user_type: affiliatedWithNapaStore ? 'affiliated_with_napa_store' : 'installer_customer',
-    //             name: fullName,
-    //             email: emailAddress,
-    //         };
-    //         if (affiliatedWithNapaStore) {
-    //             postData['store_number'] = storeNumber;
-    //             postData['servicing_dc'] = servicingDC;
-    //             postData['store_name'] = storeName;
-    //             postData['store_address'] = storeAddress;
-    //         } else if (anInstallerCustomer) {
-    //             postData['business_name'] = businessName;
-    //             postData['business_address'] = businessAddress;
-    //         }
+        var errors = {};
 
-    //         let products = [];
-    //         if (oeTurboPowerTurboChargers) {
-    //             products.push(formProducts.oeTurboPowerTurboChargers);
-    //         }
-    //         if (napaStartersAndAlternators) {
-    //             products.push(formProducts.napaStartersAndAlternators);
-    //         }
-    //         if (napaPowerSport) {
-    //             products.push(formProducts.napaPowerSport);
-    //         }
-    //         if (wilson) {
-    //             products.push(formProducts.wilson);
-    //         }
-    //         if (premiumNapaSteering) {
-    //             products.push(formProducts.premiumNapaSteering);
-    //         }
-    //         if (napaNewSteering) {
-    //             products.push(formProducts.napaNewSteering);
-    //         }
+        if (!fullName) {
+            errors['name'] = "Full name is required";
+        }
+        if (!emailAddress) {
+            errors['email'] = "Email address is required";
+        } else if (!this.validateEmail(emailAddress)) {
+            errors['email'] = "Email address is not valid";
+        }
 
-    //         postData['products_buying'] = products.join("|");
+        if (affiliatedWithNapaStore) {
+            if (!storeNumber) {
+                errors['store_number'] = "Store number is required";
+            }
+            if (!servicingDC) {
+                errors['servicing_dc'] = "Servicing DC is required";
+            }
+            if (!storeName) {
+                errors['store_name'] = "Store name is required";
+            }
+            if (!storeAddress) {
+                errors['store_address'] = "Store address is required";
+            }
+        } else if (anInstallerCustomer) {
+            if (!businessName) {
+                errors['business_name'] = "Business name is required";
+            }
+            if (!businessAddress) {
+                errors['business_address'] = "Business address is required";
+            }
+        } else {
+            errors['user_type'] = "Select who are you?";
+        }
 
-    //         const {dispatch} = this.props;
-    //         dispatch(actions.submitFormData(postData)).then(() => {
-    //             setTimeout(() => {
-    //                 const {dataAddingStatus} = this.props;
-    //                 if (dataAddingStatus === 1) {
-    //                     this.setState({
-    //                         //isShowForm: true,
 
-    //                         affiliatedWithNapaStore: false,
-    //                         anInstallerCustomer: false,
+        if (Object.keys(errors).length == 0) {
+            let postData = {
+                user_type: affiliatedWithNapaStore ? 'affiliated_with_napa_store' : 'installer_customer',
+                name: fullName,
+                email: emailAddress,
+            };
+            if (affiliatedWithNapaStore) {
+                postData['store_number'] = storeNumber;
+                postData['servicing_dc'] = servicingDC;
+                postData['store_name'] = storeName;
+                postData['store_address'] = storeAddress;
+            } else if (anInstallerCustomer) {
+                postData['business_name'] = businessName;
+                postData['business_address'] = businessAddress;
+            }
 
-    //                         fullName: "",
-    //                         emailAddress: "",
+            let products = [];
+            if (oeTurboPowerTurboChargers) {
+                products.push(formProducts.oeTurboPowerTurboChargers);
+            }
+            if (napaStartersAndAlternators) {
+                products.push(formProducts.napaStartersAndAlternators);
+            }
+            if (napaPowerSport) {
+                products.push(formProducts.napaPowerSport);
+            }
+            if (wilson) {
+                products.push(formProducts.wilson);
+            }
+            if (premiumNapaSteering) {
+                products.push(formProducts.premiumNapaSteering);
+            }
+            if (napaNewSteering) {
+                products.push(formProducts.napaNewSteering);
+            }
 
-    //                         storeNumber: "",
-    //                         servicingDC: "",
-    //                         storeName: "",
-    //                         storeAddress: "",
+            postData['products_buying'] = products.join("|");
 
-    //                         businessName: "",
-    //                         businessAddress: "",
+            const {dispatch} = this.props;
+            dispatch(actions.submitFormData(postData)).then(() => {
+                setTimeout(() => {
+                    const {dataAddingStatus} = this.props;
+                    if (dataAddingStatus === 1) {
+                        this.setState({
+                            //isShowForm: true,
 
-    //                         oeTurboPowerTurboChargers: false,
-    //                         napaStartersAndAlternators: false,
-    //                         napaPowerSport: false,
-    //                         wilson: false,
-    //                         premiumNapaSteering: false,
-    //                         napaNewSteering: false,
-    //                         formErrors: null,
-    //                     });
-    //                 }
-    //             }, 500);
-    //         });
-    //     } else {
-    //         this.setState({formErrors: errors});
-    //     }
-    // }
-    submitUserData=()=>{
-        console.log("1255455")
-        this.setState({
-                                    isShowForm: false,
-                                    screenType: 'spin',
-        
-                                    affiliatedWithNapaStore: false,
-                                    anInstallerCustomer: false,
-        
-                                    fullName: "",
-                                    emailAddress: "",
-        
-                                    storeNumber: "",
-                                    servicingDC: "",
-                                    storeName: "",
-                                    storeAddress: "",
-        
-                                    city: "",
-                                    stateName: "",
-                                    zip: "",
-        
-                                    businessName: "",
-                                    businessAddress: "",
-        
-                                    napaNewElectrical: false,
-                                    wilson: false,
-                                    premiumPlus: false,
-                                    premiumSteering: false,
-                                    powerSupport: false,
-                                    newSteering: false,
-                                    formErrors: null,
-                                });
+                            affiliatedWithNapaStore: false,
+                            anInstallerCustomer: false,
+
+                            fullName: "",
+                            emailAddress: "",
+
+                            storeNumber: "",
+                            servicingDC: "",
+                            storeName: "",
+                            storeAddress: "",
+
+                            businessName: "",
+                            businessAddress: "",
+
+                            oeTurboPowerTurboChargers: false,
+                            napaStartersAndAlternators: false,
+                            napaPowerSport: false,
+                            wilson: false,
+                            premiumNapaSteering: false,
+                            napaNewSteering: false,
+                            formErrors: null,
+                        });
+                    }
+                }, 500);
+            });
+        } else {
+            this.setState({formErrors: errors});
+        }
     }
 
     handleProductChange = (e, product) => {
@@ -301,7 +268,7 @@ class Form extends Component {
                                     <Container className={'heading-form'}>
                                         <Row>
                                             <Col>
-                                                <div className={'heading1'}>PRsdsadE-QUALIFY FOR THE</div>
+                                                <div className={'heading1'}>PRE-QUALIFY FOR THE</div>
                                             </Col>
                                         </Row>
                                         <Row>

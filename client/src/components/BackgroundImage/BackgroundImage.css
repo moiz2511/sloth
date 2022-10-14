@@ -1,6 +1,6 @@
 .bg-image {
     /* The image used */
-    background-image: url('/images/background.png');
+    background-image: url('http://localhost:3000/images/background.png');
     position: absolute;
 
     /* Add the blur effect */

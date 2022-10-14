@@ -53,7 +53,7 @@ class Spin extends Component {
         newSteering: false,
         formErrors: null,
 
-        isShowForm: true,
+        isShowForm: false,
 
         showVideo: false,
         disableSpin: false,
@@ -196,9 +196,10 @@ class Spin extends Component {
             } else if (this.state.screenType == 'spinagainlast') {
                 this.setState({disableSpin: true, screenType: 'finalscreen'});
                 setTimeout(() => {
-                    this.setState({disableSpin:false, isShowForm: true, screenType: 'spin'}, () => {
+                    this.setState({disableSpin:false, isShowForm: false, screenType: 'spin'}, () => {
                         this.setUpSlots();
                     });
+                    // this.submitUserData()
                 }, 8 * 1000);
             } else {
                 this.setState({disableSpin: false, screenType: 'spinagain'});
@@ -210,6 +211,39 @@ class Spin extends Component {
     validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
+    }
+
+    submitUserData=()=>{
+        this.setState({
+            isShowForm: false,
+            screenType: 'spin',
+
+            affiliatedWithNapaStore: false,
+            anInstallerCustomer: false,
+
+            fullName: "",
+            emailAddress: "",
+
+            storeNumber: "",
+            servicingDC: "",
+            storeName: "",
+            storeAddress: "",
+
+            city: "",
+            stateName: "",
+            zip: "",
+
+            businessName: "",
+            businessAddress: "",
+
+            napaNewElectrical: false,
+            wilson: false,
+            premiumPlus: false,
+            premiumSteering: false,
+            powerSupport: false,
+            newSteering: false,
+            formErrors: null,
+        });
     }
 
     // submitUserData = () => {
@@ -349,39 +383,6 @@ class Spin extends Component {
     //         this.setState({formErrors: errors});
     //     }
     // }
-    submitUserData=()=>{
-        console.log("1255455")
-        this.setState({
-                                    isShowForm: false,
-                                    screenType: 'spin',
-        
-                                    affiliatedWithNapaStore: false,
-                                    anInstallerCustomer: false,
-        
-                                    fullName: "",
-                                    emailAddress: "",
-        
-                                    storeNumber: "",
-                                    servicingDC: "",
-                                    storeName: "",
-                                    storeAddress: "",
-        
-                                    city: "",
-                                    stateName: "",
-                                    zip: "",
-        
-                                    businessName: "",
-                                    businessAddress: "",
-        
-                                    napaNewElectrical: false,
-                                    wilson: false,
-                                    premiumPlus: false,
-                                    premiumSteering: false,
-                                    powerSupport: false,
-                                    newSteering: false,
-                                    formErrors: null,
-                                });
-    }
 
     handleProductChange = (e, product) => {
         if (!checkboxwait) {
@@ -480,7 +481,7 @@ class Spin extends Component {
                                     <Container className={'heading-form'}>
                                         <Row>
                                             <Col>
-                                                <div className={'heading1'}>PRE-QUAfsdfsLIFY FOR THE</div>
+                                                <div className={'heading1'}>PRE-QUALIFY FOR THE</div>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -548,7 +549,7 @@ class Spin extends Component {
                                     </Container>
 
 
-                                    {/* <Container className={'input-form'}>
+                                    <Container className={'input-form'}>
                                         <Row>
                                             <Col sm={12} md={3}>
                                                 <span className={'input-label'}>Full Name</span>
@@ -929,7 +930,7 @@ class Spin extends Component {
                                         dataAddingStatus == 0 && (
                                             <Alert theme="danger">{dataAddingError}</Alert>
                                         )
-                                    } */}
+                                    }
 
                                     <Container className={'btn-view'}>
                                         <Row>

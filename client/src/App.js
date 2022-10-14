@@ -46,7 +46,7 @@ function App() {
                                     }}
                                 >
                                     <Route
-                                        // location={location}
+                                        location={location}
                                         render={() => (
                                             <Switch>
                                                 <Route
