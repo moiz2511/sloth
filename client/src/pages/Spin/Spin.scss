@@ -1,0 +1,726 @@
+.spin-page-container {
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #04111E;
+  height: 100vh;
+  position: relative;
+
+  .input-error {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: #ff0000;
+  }
+
+  .start-over-btn {
+    position: absolute;
+    bottom: 10px;
+    background-color: #003F9D;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    margin: auto;
+    z-index: 100;
+
+    .form-container {
+      padding: 16px;
+      background-color: rgba(255, 255, 255, 0.95);
+      width: 70%;
+      min-width: 300px;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      min-height: 200px;
+      border-radius: 20px;
+
+      .form-control{
+        background-color: #e5e5e5;
+        padding: .375rem .75rem;
+        line-height: 10px;
+        border: 1px solid #878686;
+      }
+
+      .custom-control-label {
+        &::before {
+          background-color: #e5e5e5;
+          border-color: #878686;
+        }
+      }
+
+      .custom-control-input {
+        &:checked ~ .custom-control-label::before {
+          color: #fff;
+          border-color: transparent;
+          background-color: #007bff;
+          box-shadow: none;
+        }
+      }
+
+      .heading-form {
+        .heading1 {
+          font-size: 26px;
+          font-weight: bold;
+          color: #003F9D;
+          text-align: center;
+        }
+
+        .heading2 {
+          font-size: 70px;
+          font-weight: bold;
+          color: #F7B744;
+          text-align: center;
+        }
+
+        .heading3 {
+          color: #003F9D;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+
+      .heading4 {
+        font-weight: bold;
+        font-size: 26px;
+        color: #555555;
+        text-align: left;
+        line-height: normal;
+        margin-bottom: 8px;
+      }
+
+      .custom-control-description {
+        font-weight: bold;
+      }
+
+      .option-form {
+
+      }
+
+      .input-form {
+        margin-top: 30px;
+
+        .input-label {
+          font-weight: bold;
+        }
+
+        .input-field {
+          margin-bottom: 10px;
+        }
+      }
+
+
+      .product-choose-form {
+
+      }
+
+      .btn-view {
+        text-align: center;
+
+        .play-btn {
+          background-color: #003F9D;
+          font-size: 26px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .slot-machine-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #04111E;
+    z-index: 100;
+  }
+
+  .spin-bg-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    z-index: -1;
+  }
+
+
+  .btn-container {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+  }
+
+  .spin-btn {
+    background-color: transparent;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: none;
+    right: 85px;
+    margin-top: -88px;
+  }
+
+  .video-container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    .video-view {
+      width: 80%;
+      background-color: #fff;
+      object-fit: contain;
+      border-radius: 20px;
+      max-width: 600px;
+    }
+  }
+
+
+  #rotate {
+    margin: 0 auto 0;
+    width: auto;
+    height: 250px;
+    padding-top: 100px;
+    transform-style: preserve-3d;
+    overflow-y: hidden;
+    margin-top: 130px;
+    padding-right: 22px;
+  }
+
+  .ring {
+    margin: 0 auto;
+    height: 80px;
+    width: 160px;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transform-style: preserve-3d;
+  }
+
+  .spin-item {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  .slot {
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    box-sizing: border-box;
+    opacity: 0.9;
+    color: rgba(0, 0, 0, 0.9);
+    //background: #fff;
+    //border: solid 2px #000;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+
+  /*=====*/
+  .spin-0 {
+    transform: rotateX(-3719deg);
+  }
+
+  .spin-1 {
+    transform: rotateX(-3749deg);
+  }
+
+  .spin-2 {
+    transform: rotateX(-3779deg);
+  }
+
+  .spin-3 {
+    transform: rotateX(-3809deg);
+  }
+
+  .spin-4 {
+    transform: rotateX(-3839deg);
+  }
+
+  .spin-5 {
+    transform: rotateX(-3869deg);
+  }
+
+  .spin-6 {
+    transform: rotateX(-3899deg);
+  }
+
+  .spin-7 {
+    transform: rotateX(-3929deg);
+  }
+
+  .spin-8 {
+    transform: rotateX(-3959deg);
+  }
+
+  .spin-9 {
+    transform: rotateX(-3989deg);
+  }
+
+  .spin-10 {
+    transform: rotateX(-4019deg);
+  }
+
+  .spin-11 {
+    transform: rotateX(-4049deg);
+  }
+
+  /*=====*/
+  @keyframes back-spin {
+    /*0%    { transform: rotateX(0deg); }*/
+    100% {
+      transform: rotateX(30deg);
+    }
+  }
+
+  @keyframes tiltin {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(45deg);
+    }
+  }
+
+  @keyframes tiltout {
+    0% {
+      transform: rotateY(45deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+
+  @keyframes spin-0 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3719deg);
+    }
+  }
+
+  @keyframes spin-1 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3749deg);
+    }
+  }
+
+  @keyframes spin-2 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3779deg);
+    }
+  }
+
+  @keyframes spin-3 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3809deg);
+    }
+  }
+
+  @keyframes spin-4 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3839deg);
+    }
+  }
+
+  @keyframes spin-5 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3869deg);
+    }
+  }
+
+  @keyframes spin-6 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3899deg);
+    }
+  }
+
+  @keyframes spin-7 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3929deg);
+    }
+  }
+
+  @keyframes spin-8 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3959deg);
+    }
+  }
+
+  @keyframes spin-9 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-3989deg);
+    }
+  }
+
+  @keyframes spin-10 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-4019deg);
+    }
+  }
+
+  @keyframes spin-11 {
+    0% {
+      transform: rotateX(30deg);
+    }
+    100% {
+      transform: rotateX(-4049deg);
+    }
+  }
+
+
+  @media only screen and (max-device-width: 319px) and (orientation: portrait) {
+    .slot-machine-container {
+      width: 280px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -25px;
+      margin-right: -70px;
+    }
+    #rotate {
+      height: 70px;
+      padding-top: 4px;
+      margin-top: 36px;
+      padding-right: 7px;
+    }
+    .ring {
+      width: 44px;
+      height: 70px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 70px;
+    }
+    .slot {
+      width: 30px;
+      height: 70px;
+    }
+  }
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 400px) and (orientation: portrait) {
+    .slot-machine-container {
+      width: 320px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -32px;
+      margin-right: -64px;
+    }
+    #rotate {
+      height: 80px;
+      padding-top: 2px;
+      margin-top: 44px;
+      padding-right: 7px;
+    }
+    .ring {
+      height: 80px;
+      width: 50px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 80px;
+    }
+    .slot {
+      width: 40px;
+      height: 80px;
+    }
+  }
+  @media only screen and (min-device-width: 401px) and (max-device-width: 767px) and (orientation: portrait) {
+    .slot-machine-container {
+      width: 400px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -36px;
+      margin-right: -55px;
+    }
+    #rotate {
+      height: 100px;
+      padding-top: 7px;
+      margin-top: 50px;
+      padding-right: 8px;
+    }
+    .ring {
+      width: 65px;
+      height: 100px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 100px;
+    }
+    .slot {
+      width: 45px;
+      height: 100px;
+    }
+  }
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .slot-machine-container {
+      width: 768px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -36px;
+      margin-right: -55px;
+    }
+    #rotate {
+      height: 200px;
+      padding-top: 7px;
+      margin-top: 100px;
+      padding-right: 15px;
+    }
+    .ring {
+      width: 120px;
+      height: 200px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 200px;
+    }
+    .slot {
+      width: 80px;
+      height: 200px;
+    }
+  }
+
+  @media only screen and (min-device-width: 1025px) and (orientation: portrait) {
+    .slot-machine-container {
+      width: 1025px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -85px;
+      margin-right: 0px;
+    }
+    #rotate {
+      height: 260px;
+      padding-top: 3px;
+      margin-top: 140px;
+      padding-right: 16px;
+    }
+    .ring {
+      width: 165px;
+      height: 270px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 270px;
+    }
+    .slot {
+      width: 100px;
+      height: 270px;
+    }
+  }
+
+
+  //landscape mode
+
+  @media only screen and (max-device-height: 319px) and (orientation: landscape) {
+    .slot-machine-container {
+      width: 280px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -25px;
+      margin-right: -70px;
+    }
+    #rotate {
+      height: 70px;
+      padding-top: 4px;
+      margin-top: 36px;
+      padding-right: 7px;
+    }
+    .ring {
+      width: 44px;
+      height: 70px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 70px;
+    }
+    .slot {
+      width: 30px;
+      height: 70px;
+    }
+  }
+
+  @media only screen and (min-device-height: 320px) and (max-device-height: 400px) and (orientation: landscape) {
+    .slot-machine-container {
+      width: 320px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -32px;
+      margin-right: -64px;
+    }
+    #rotate {
+      height: 80px;
+      padding-top: 2px;
+      margin-top: 44px;
+      padding-right: 7px;
+    }
+    .ring {
+      height: 80px;
+      width: 50px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 80px;
+    }
+    .slot {
+      width: 40px;
+      height: 80px;
+    }
+  }
+
+  @media only screen and (min-device-height: 401px) and (max-device-height: 767px) and (orientation: landscape) {
+    .slot-machine-container {
+      width: 400px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -36px;
+      margin-right: -55px;
+    }
+    #rotate {
+      height: 100px;
+      padding-top: 7px;
+      margin-top: 50px;
+      padding-right: 8px;
+    }
+    .ring {
+      width: 65px;
+      height: 100px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 100px;
+    }
+    .slot {
+      width: 45px;
+      height: 100px;
+    }
+  }
+
+  @media only screen and (min-device-height: 768px) and (max-device-height: 1024px) and (orientation: landscape) {
+    .slot-machine-container {
+      width: 768px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -71px;
+      margin-right: -20px;
+    }
+    #rotate {
+      height: 200px;
+      padding-top: 7px;
+      margin-top: 100px;
+      padding-right: 15px;
+    }
+    .ring {
+      width: 120px;
+      height: 200px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 200px;
+    }
+    .slot {
+      width: 80px;
+      height: 200px;
+    }
+  }
+
+  @media only screen and (min-device-height: 1025px) and (orientation: landscape) {
+    .slot-machine-container {
+      width: 1025px;
+    }
+    .spin-btn {
+      width: 200px;
+      height: 200px;
+      margin-top: -85px;
+      margin-right: 0px;
+    }
+    #rotate {
+      height: 260px;
+      padding-top: 3px;
+      margin-top: 140px;
+      padding-right: 16px;
+    }
+    .ring {
+      width: 165px;
+      height: 270px;
+    }
+    .spin-item {
+      width: 100%;
+      height: 270px;
+    }
+    .slot {
+      width: 100px;
+      height: 270px;
+    }
+  }
+
+}
