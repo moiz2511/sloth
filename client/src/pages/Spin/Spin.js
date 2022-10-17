@@ -186,26 +186,71 @@ class Spin extends Component {
                 maxTimerDelay = delay;
             }
         }
-        setTimeout(() => {
+        // setTimeout(() => {
 
-            if (this.state.screenType == 'spinagain') {
-                this.setState({disableSpin: false, showVideo: true, screenType: 'spinagainlast'});
-                setTimeout(() => {
-                    document.getElementById('trainingvideoview').play();
-                }, 300);
-            } else if (this.state.screenType == 'spinagainlast') {
-                this.setState({disableSpin: true, screenType: 'finalscreen'});
-                setTimeout(() => {
-                    this.setState({disableSpin:false, isShowForm: false, screenType: 'spin'}, () => {
-                        this.setUpSlots();
-                    });
-                    // this.submitUserData()
-                }, 8 * 1000);
-            } else {
-                this.setState({disableSpin: false, screenType: 'spinagain'});
-            }
+        //     if (this.state.screenType == 'spinagain') {
+        //         this.setState({disableSpin: false, showVideo: true, screenType: 'spinagainlast'});
+        //         setTimeout(() => {
+        //             document.getElementById('trainingvideoview').play();
+        //         }, 300);
+        //     } else if (this.state.screenType == 'spinagainlast') {
+        //         this.setState({disableSpin: true, screenType: 'finalscreen',showVideo: true});
+        //         setTimeout(() => {
+        //             this.setState({disableSpin:false, isShowForm: false,showVideo: true, screenType: 'spin'}, () => {
+        //                 this.setUpSlots();
+        //             });
+                    
+        //             // this.submitUserData()
+        //         }, 8 * 1000);
+        //     } else {
+        //         this.setState({disableSpin: false, screenType: 'spinagainlast'});
+               
+        //     }
 
-        }, maxTimerDelay * 1000);
+        // }, maxTimerDelay * 500);
+        if(this.state.screenType=='spinagain'){
+            setTimeout(() => {
+
+                if (this.state.screenType == 'spinagain') {
+                    this.setState({disableSpin: false, showVideo: true, screenType: 'spinagainlast'});
+                    setTimeout(() => {
+                        document.getElementById('trainingvideoview').play();
+                    }, 300);
+                } else if (this.state.screenType == 'spinagainlast') {
+                    this.setState({disableSpin: true, screenType: 'finalscreen'});
+                    setTimeout(() => {
+                        this.setState({disableSpin:false, isShowForm: false, screenType: 'spin'}, () => {
+                            this.setUpSlots();
+                        });
+                    }, 8 * 1000);
+                } else {
+                    this.setState({disableSpin: false, screenType: 'spinagain'});
+                }
+    
+            }, maxTimerDelay * 500);
+        }
+        else{
+            setTimeout(() => {
+
+                if (this.state.screenType == 'spinagain') {
+                    this.setState({disableSpin: false, showVideo: true, screenType: 'spinagainlast'});
+                    setTimeout(() => {
+                        document.getElementById('trainingvideoview').play();
+                    }, 300);
+                } else if (this.state.screenType == 'spinagainlast') {
+                    this.setState({disableSpin: true, screenType: 'finalscreen'});
+                    setTimeout(() => {
+                        this.setState({disableSpin:false, isShowForm: false, screenType: 'spin'}, () => {
+                            this.setUpSlots();
+                        });
+                    }, 8 * 1000);
+                } else {
+                    this.setState({disableSpin: false, screenType: 'spinagain'});
+                }
+    
+            }, maxTimerDelay * 1000);
+        }
+        
     }
 
     validateEmail(email) {
@@ -466,6 +511,7 @@ class Spin extends Component {
                                 <video controls={false} className={'video-view'} autoPlay muted id={'trainingvideoview'}
                                        onEnded={() => {
                                            this.setState({showVideo: false});
+                                           this.spin()
                                        }}>
                                     <source src="videos/NAPA.mp4" type="video/mp4"/>
                                 </video>
